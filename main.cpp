@@ -59,7 +59,7 @@ do {
             if (count < MAX_SIZE) {
                 cout << "Enter name: ";
                 cin >> students[count].name;
-                cout >> "Enter score: ";
+                cout << "Enter score: ";
                 cin >> students[count].score;
                 count++;
             } else {
