@@ -63,7 +63,7 @@ do {
                 cin >> students[count].score;
                 count++;
             } else {
-                cout >> "Classroom is full!\n";
+                cout << "Classroom is full!\n";
             }
             break;
         case 3:
@@ -102,7 +102,7 @@ void displayData(Student students[], int count) {
   cout << "\n" << left << setw(15) << "Name" << "Score" << endl;
   cout << "----------------------\n";
   for (int i = 0; i < count; i++) {
-      cout << left << setw(15) << students[i].name << students.[i].score << endl;
+      cout << left << setw(15) << students[i].name << students[i].score << endl;
   }
 }
 void searchEntry(Student students[], int count) {
