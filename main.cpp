@@ -11,13 +11,13 @@
 
 using namespace std;
 
-struct Student {
+struct Student {        // Changed struct from Class to Student 
 string name;
 int score;
 };
-
+// Function Prototypes
 void findMinMax(Student students[], int count);
-void displayData(Student students[], int count);
+void displayData(Student students[], int count);      
 void searchEntry(Student students[], int count);
 void saveData(Student students[], int count, string filename);
 
