@@ -28,6 +28,26 @@ int main() {
   string filename = "output.txt";
 
 ifstream inFile(filename);
+if (inFile) {
+    while (count < MAX_SIZE && inFile >> students[count].name >> students[count].score) {
+          count++;
+    }
+    inFile.close();
+    cout << "Loaded " << count << " student scores from " << filename << endl;
+} else {
+    cout << "No existing file found. Please try again.\n";
+}
+
+int choice;
+
+do {
+    cout << "\n--- Daily Quiz Menu ---\n";
+    cout << "1. View Data\n";
+    cout << "2. Add Entry\n";
+    cout << "3. Search Entry\n";
+    cout
+
+do
 
 
 
