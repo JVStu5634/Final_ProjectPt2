@@ -26,24 +26,24 @@ int main() {
   Student students[MAX_SIZE];
   int count = 0;
   string filename = "output.txt";
-
+              // Loads output.txt into program
 ifstream inFile(filename);
 if (inFile) {
     while (count < MAX_SIZE && inFile >> students[count].name >> students[count].score) {
           count++;
     }
-    inFile.close();
+    inFile.close();                                                                        
     cout << "Loaded " << count << " student scores from " << filename << endl;
 } else {
     cout << "No existing file found. Please try again.\n";
 }
-
+// Revised menu loop
 int choice;
 
 do {
     cout << "\n--- Daily Quiz Menu ---\n";
     cout << "1. View Data\n";
-    cout << "2. Add Entry\n";
+    cout << "2. Add Entry\n";                                
     cout << "3. Search Entry\n";
     cout << "4. Save Data\n";
     cout << "5. Exit\n";
@@ -55,10 +55,10 @@ do {
             displayData(students, count);
             findMinMax(students, count);
             break;
-        case 2:
+        case 2:                                    // Allows user to add an entry
             if (count < MAX_SIZE) {
-                cout << "Enter name: ";
-                cin >> students[count].name;
+                cout << "Enter name: ";                
+                cin >> students[count].name;      
                 cout << "Enter score: ";
                 cin >> students[count].score;
                 count++;
@@ -83,7 +83,7 @@ do {
   return 0;
 }
 
-void findMinMax(Student students[], int count) {
+void findMinMax(Student students[], int count) {      // Function to find the student with the highest and lowest quiz score
   if (count == 0) return;
 
   int maxIdx = 0, minIdx = 0;
@@ -98,14 +98,14 @@ void findMinMax(Student students[], int count) {
   cout << "Todays Highest Score: " << students[maxIdx].name << " (" << students[maxIdx].score << ")\n";
   cout << "Todays Lowest Score: " << students[minIdx].name << " (" << students[minIdx].score << ")\n";
 }
-void displayData(Student students[], int count) {
+void displayData(Student students[], int count) {                  // Function to display the current student names and daily quiz scores
   cout << "\n" << left << setw(15) << "Name" << "Score" << endl;
   cout << "----------------------\n";
   for (int i = 0; i < count; i++) {
       cout << left << setw(15) << students[i].name << students[i].score << endl;
   }
 }
-void searchEntry(Student students[], int count) {
+void searchEntry(Student students[], int count) {   // Function to allow user to search for an entry
   string query;
   cout << "Enter name to search: ";
   cin >> query;
@@ -120,7 +120,7 @@ void searchEntry(Student students[], int count) {
   if (!found) 
     cout << "Record not found.\n";
 }
-void saveData(Student students[], int count, string filename) {
+void saveData(Student students[], int count, string filename) {      // Function that allows user to save the added entry to the output file
   ofstream outFile(filename);
   for (int i = 0; i < count; i++) {
       outFile << students[i].name << " " << students[i].score << endl;
