@@ -45,10 +45,43 @@ do {
     cout << "1. View Data\n";
     cout << "2. Add Entry\n";
     cout << "3. Search Entry\n";
-    cout
+    cout << "4. Save Data\n";
+    cout << "5. Exit\n";
+    cout << "Enter choice: ";
+    cin >> choice;
 
-do
+    switch (choice) {
+        case 1:
+            displayData(students, count);
+            findMinMax(students, count);
+            break;
+        case 2:
+            if (count < MAX_SIZE) {
+                cout << "Enter name: ";
+                cin >> students[count].name;
+                cout >> "Enter score: ";
+                cin >> students[count].score;
+                count++;
+            } else {
+                cout >> "Classroom is full!\n";
+            }
+            break;
+        case 3:
+              searchEntry(students, count);
+            break;
+        case 4:
+              saveData(students, count, filename);
+            break;
+        case 5:
+              cout << "Exiting program... See you tomorrow!\n";
+            break;
+        default:
+              cout << "Invalid choice. Please try again..\n";
+      }
+  } while (choice != 5);
 
+  return 0;
+}
 
 
 
