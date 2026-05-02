@@ -83,8 +83,50 @@ do {
   return 0;
 }
 
+void findMinMax(Student students[], int count) {
+  if (count == 0) return;
 
+  int maxIdx = 0, minIdx = 0;
 
+  for (int i = 1; i < count; i++) {
+      if (students[i].score > students[maxIdx].score)
+        maxIdx = i;
+      if (students[i].score < students[minIdx].score)
+        minIdx = i;
+  }
+  cout << "\nDaily Stats:\n";
+  cout << "Todays Highest Score: " << students[maxIdx].name << " (" << students[maxIdx].score << ")\n";
+  cout << "Todays Lowest Score: " << students[minIdx].name << " (" << students[minIdx].score << ")\n";
+}
+void displayData(Student students[], int count) {
+  cout << "\n" << left << setw(15) << "Name" << "Score" << endl;
+  cout << "----------------------\n";
+  for (int i = 0; i < count; i++) {
+      cout << left << setw(15) << students[i].name << students.[i].score << endl;
+  }
+}
+void searchEntry(Student students[], int count) {
+  string query;
+  cout << "Enter name to search: ";
+  cin >> query;
+  bool found = false;
+  for (int i = 0; i < count; i++) {
+      if (students[i].name == query) {
+        cout << "Found: " << students[i].name << " - Score: " << students[i].score << endl;
+        found = true;
+        break;
+      }
+  }
+  if (!found) 
+    cout << "Record not found.\n";
+}
+void saveData(Student students[], int count, string filename) {
+  ofstream outFile(filename);
+  for (int i = 0; i < count; i++) {
+      outFile << students[i].name << " " << students[i].score << endl;
+  }
+  outFile.close();
+  cout << "Data successfully saved to " << filename << endl;
+}
 
-
-
+        
